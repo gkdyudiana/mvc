@@ -3,13 +3,13 @@
 /*-------------------------------------------*/
 /*----------- konfigurasi Database ----------*/
 /*-------------------------------------------*/
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'db_penjualan');
-define('DB_USERNAME', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'hostname');
+define('DB_NAME', 'dbname');
+define('DB_USERNAME', 'dbusername');
+define('DB_PASS', 'dbpassword');
 
 /*-------------------------------------------*/
-/*----------- PATH asset, css, js, baseurl ----------*/
+/*--- PATH asset, css, js, baseurl ----------*/
 /*-------------------------------------------*/
 
 define('CSS', 'http://127.0.0.1/mvc/public/assets/css');

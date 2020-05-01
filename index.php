@@ -1,4 +1,4 @@
-<?php 
+<?php
 
-header('Location: public');
+header('Location: public/auth');
 exit();
