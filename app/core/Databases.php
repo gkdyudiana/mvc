@@ -2,22 +2,25 @@
 
 class Databases extends Controller
 {
-    private $host;
-    private $db;
-    private $user;
-    private $pass;
-    public $connect;
+    private $host = DB_HOST;
+    private $db = DB_NAME;
+    private $user = DB_USERNAME;
+    private $pass = DB_PASS;
+    public $dbh;
 
     public function __construct()
     {
+        $options = [
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_CASE => PDO::CASE_NATURAL,
+            PDO::ATTR_ORACLE_NULLS => PDO::NULL_EMPTY_STRING
+        ];
+
         try {
-            $this->host = 'localhost';
-            $this->db = 'db_penjualan';
-            $this->user = 'root';
-            $this->pass = '';
-            $this->connect = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass);
+            $this->dbh = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
-            echo "Koneksi Gagal!" . $e->getMessage();
+            die("Database connection failed: " . $e->getMessage());
         }
     }
 }
